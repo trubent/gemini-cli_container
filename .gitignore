@@ -1,0 +1,41 @@
+credentials/*
+!credentials/.gitkeep
+!credentials/README.md
+
+# Sensitive config files
+.env
+.env.*
+!.env.example
+gcp_sa.json
+*sa*.json
+*key*.json
+*.json.secret
+*service-account*.json
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# Local cloud config folders
+.aws/
+.gcloud/
+.kube/
+.vultr/
+
+# Keys and certificates
+*.pem
+*.key
+*.crt
+*.p12
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+

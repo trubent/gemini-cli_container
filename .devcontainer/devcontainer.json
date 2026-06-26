@@ -1,0 +1,35 @@
+{
+  "name": "Gemini Infra Agent",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "vscode",
+  "containerEnv": {
+    "GOOGLE_APPLICATION_CREDENTIALS": "/workspaces/${localWorkspaceFolderBasename}/credentials/gcp/pixart-prj-0d03a12e3464.json",
+    "AWS_SHARED_CREDENTIALS_FILE": "/workspaces/${localWorkspaceFolderBasename}/credentials/aws"
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+      "extensions": [
+        "Google.geminicodeassist",
+        "hashicorp.terraform",
+        "redhat.ansible",
+        "ms-python.python",
+        "ms-azuretools.vscode-docker",
+        "dbaeumer.vscode-eslint"
+      ]
+    }
+  },
+  "mounts": [
+    "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+  ],
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "moby": false
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/postCreateCommand.sh"
+}

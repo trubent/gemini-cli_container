@@ -1,0 +1,71 @@
+# using GCloud cli with gcp_sa.json file create resources in GCP list at below
+vpc name: gsa-vpc
+subnets:
+  - name: gsa-subnet-1
+    cidr: 10.0.1.0/24
+    region: us-central1
+    private-google-access: true
+
+# do not create any scripts just run gcloud cli commands
+
+# using GCloud cli with gcp_sa.json file create resources in GCP list at below
+gsa-name: vm-sa-01
+gsa-roles: storage admin
+
+GCS-name: gsa-bucket-1725-rubo
+region: us-central1
+# do not create any scripts just run gcloud cli commands
+
+# using GCloud cli with gcp_sa.json file create resources in GCP list at below
+vm-name: gsa-vm
+vm subnet: gsa-subnet-1
+vm region: us-central1
+vm machine-type: e2-standard-2
+allow ssh from : 0.0.0.0/0
+do not create any scripts just run gcloud cli commands
+# ------------------------------------------------------------------
+add firewall rule to allow ssh from : 0.0.0.0/0 for gsa-vm
+attach service account vm-sa-01 to gsa-vm
+
+
+# using GCloud cli with gcp_sa.json file create resources in GCP list at below
+create file store in GCP
+name: gsa-file-store
+region: us-central1
+Service Tier: Basic HDD
+Availability: Zonal (Single zone)
+Provisioning: Minimum required (100 GiB for GKE; 1 TiB for standard)
+Performance: Default (Custom performance OFF unless IOPS specific)
+vpc name: gsa-vpc
+# do not create any scripts just run gcloud cli commands
+
+# using GCloud cli with gcp_sa.json file create resources in GCP list at below
+mount file store to gsa-vm
+mount point: /mnt/gsa-file-store
+add in fstab for auto mount on reboot
+file store name: gsa-file-store
+vm name: gsa-vm
+Allow read/write access to the file store for gsa-vm
+# do not create any scripts just run gcloud cli commands
+
+
+
+
+# using GCloud cli with gcp_sa.json file create resources in GCP list at below
+clouud sql instance name: gsa-sql-instance
+region: us-central1
+database version: POSTGRES_18
+machine type: db-custom-2-8192
+storage type: HDD
+storage size: 10 GB
+availability: Zonal (Single zone)
+private ip: true
+vpc name: gsa-vpc
+public ip: true
+allow public access from 109.75.34.101/32
+password: jJnCh:)RJ`yL<2U,
+create database in gsa-sql-instance
+database name: gsa-database
+database charset: UTF8
+database collation: en_US.UTF8
+# do not create any scripts just run gcloud cli commands

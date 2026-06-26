@@ -1,0 +1,8 @@
+# using GCloud cli with gcp_sa.json file delete resources in GCP list at below
+vpc name: gsa-vpc
+subnets:
+  - name: gsa-subnet-1
+GCS-name: gsa-bucket-1725
+vm-name: gsa-vm
+gsa-name: vm-sa-01
+# do not create any scripts just run gcloud cli commands  
