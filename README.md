@@ -4,7 +4,7 @@ This repo is a reusable Dev Container template for infrastructure and cloud work
 
 Included tools:
 
-- Codex CLI
+- Gemini CLI
 - Terraform
 - Ansible
 - AWS CLI
@@ -22,17 +22,3 @@ Included tools:
 Open in VS Code and run:
 
 Dev Containers: Reopen in Container
-
-## Credentials
-
-Do not commit credentials.
-
-Use local-only files in:
-
-./credentials
-
-Or use host-mounted config:
-
-- ~/.aws
-- ~/.config/gcloud
-- ~/.ssh
